@@ -21,17 +21,13 @@ sequenceDiagram
     participant np as NodeProxy
     end
     
-    rect rgb(245, 245, 245)
     par Sound Source
     p ->> np : Create a NodeProxy
     %%np -->> s : Register it internally as a SynthDef
     end
-    end
     
-    rect rgb(245, 245, 245)
     par Analysis Source
     a ->>+ s : Register a SynthDef for analysis
-    end
     end
     
     box Server : scsynth
@@ -40,25 +36,19 @@ sequenceDiagram
     participant b as Bus
     end
     
-    rect rgb(245, 245, 245)
     opt OSC is received
     n -->+ r : SendReply : ['/viz', nodeID, replyID, amp, cent, onset]
     create participant t as TouchDesigner
     r ->>- t : NetAddr.sendMsg
     end
-    end
     
-    rect rgb(245, 245, 245)
     par Audio Start
     np ->>+ n : Build & Send synth graph
     s -->> n : Create a SynthNode
     create participant d as DAC
     n -->>- d : Out.ar
     end
-    end
     
-    
-    rect rgb(245, 245, 245)
     alt
     Note over np : \attach 
     c ->>+ n : Create an analysis synth
@@ -77,5 +67,4 @@ sequenceDiagram
     Note over np : \stop
     c ->> n : Free all analysis synths
     c --> c : Clear [\nodes]
-    end
     end
