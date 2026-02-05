@@ -9,7 +9,7 @@
 
 ## 概要
 
-SuperCollider 上で生成・解析した音声データ（音量・スペクトル重心・オンセットなど）を  
+SuperCollider 上で生成・解析した音源データ（音量・スペクトル重心・オンセットなど）を  
 OSC メッセージとして送信し、TouchDesigner 側でビジュアル表現に利用するための構成です。
 
 音源生成・解析は SuperCollider（scsynth）側で行い、  
